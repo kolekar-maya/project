@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <button class="btn btn-success justify-content-end" (click)="home()"><b>Home</b></button>
+    <h1>Registration</h1>
+    <div class="card">
+        <div class="text-center">
+            <form [formGroup]="registration" (ngSubmit)="Submit()">
+                <div class="form-group col-6">
+                    <label>Name: <span style="color: red;">*</span></label>
+                    <input type="text" formControlName="name" class="form-control" placeholder="Enter name Here" required [ngClass]="{'is-invalid': isSubmitted && f.name.errors}">
+                    <div *ngIf="isSubmitted && f.name.errors?.required" class="invalid-feedback">Enter Valid  name</div>
+                </div>
+                <!-- <div class="form-group col-6">
+                    <label>Last Name: <span style="color: red;">*</span></label>
+                    <input type="text" formControlName="lname" class="form-control" placeholder="Enter name Here" required [ngClass]="{'is-invalid': isSubmitted && f.lname.errors}">
+                    <div *ngIf="isSubmitted && f.lname.errors?.required" class="invalid-feedback">Enter Valid  name</div>
+                </div> -->
+
+                <!-- <div class="form-group col-6">
+                    <label> Age: <span style="color: red;">*</span></label>
+                    <input type="number" formControlName="age" class="form-control" placeholder="Enter Age Here" required [ngClass]="{'is-invalid': isSubmitted && f.age.errors}">
+                    <div *ngIf="isSubmitted && f.age.errors?.required" class="invalid-feedback">Enter Valid Age</div>
+                </div> -->
+                <div class="form-group col-6">
+                    <label for=""> password <span style="color: red;">*</span></label>
+                    <input type="password" formControlName="empId" class="form-control" placeholder="Enter empId Here"
+                        required [ngClass]="{'is-invalid': isSubmitted && f.empId.errors}">
+                    <div *ngIf="isSubmitted && f.empId.errors?.required" class="invalid-feedback">Enter Valid Password
+                    </div>
+                </div>
+              
+                <!-- <div class="form-group col-6">
+                    <label for="" >Role: <span style="color: red;">*</span></label> <br>
+                    <input type="radio" formControlName="role" value="admin" name="role"><span style="color: white;">Admin</span><br>
+                    <input type="radio" formControlName="role" value="user" name="role"><span style="color: white;">User</span>
+                </div> -->
+
+                <div class="d-grid gap-2  ">
+                    <input type="submit" value="submit" class="btn btn-primary form-control">
+                </div>
+                <div class="d-grid gap-2 ">
+                    <button id="r1" pButton type="button" value="submit" label="Already User ?" (click)="AlreadyUser()"
+                        class="btn login">login</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Trigger the modal with a button -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header" style="background-color:rgb(220, 255, 131) ;">
+            <!-- <button type="button" class="close" data-dismiss="modal" (click)="closemodel()">&times;</button> -->
+            <h4 class="modal-title">User Login</h4>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closemodel()"></button> -->
+          </div>
+          <div class="modal-body" >
+            <p>Registr success</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="closemodel()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

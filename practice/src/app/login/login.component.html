@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="card">
+      <div class="text-center">
+          <form [formGroup]="loginform" (ngSubmit)="OnSubmitForm()">
+              <h1 class="text-center ">Login Form</h1>
+              <div class="row">
+                  <div class="form-group">
+                      <label>Name: <span style="color: red;">*</span></label>
+                      <input type="text" class="form-control" formControlName="name"
+                          placeholder="Enter User name Here " required
+                          [ngClass]="{'is-invalid': isSubmitted && f.name.errors}">
+                      <div *ngIf="isSubmitted && f.name.errors?.required" class="invalid-form"></div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="form-group">
+                      <label>Password: <span style="color: red;">*</span></label>
+                      <input type="password" class="form-control" formControlName="empId"
+                          placeholder="Enter User password Here ">
+                  </div>
+              </div>
+              <div class="row d-grid gap-2 col-6 mx-auto mt-2">
+                  <div class="form-group">
+                      <!-- <input type="submit" value="Sumbit" > -->
+                      <button type="submit" value="Sumbit" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="openmodel()">Login</button>
+                  </div>
+              </div>
+
+              <div class="d-grid gap-2 ">
+                  <button id="r1" pButton type="button" value="submit" label="New User ?" (click)="NewUser()"
+                      class="btn login">Registration/NewUser</button>
+              </div>
+
+          </form>
+      </div>
+  </div>
+</div>
+<div class="container">
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:rgb(220, 255, 131) ;">
+          <!-- <button type="button" class="close" data-dismiss="modal" (click)="closemodel()">&times;</button> -->
+          <h4 class="modal-title">User Login</h4>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closemodel()"></button> -->
+        </div>
+        <div class="modal-body" >
+          <p>{{masegelogin}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="closemodel()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
